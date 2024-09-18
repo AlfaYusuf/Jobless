@@ -12,7 +12,8 @@ const JobDetails = () => {
 
     useEffect(() => {
         debugger
-        fetch('http://192.168.11.31:5195/api/JobDetails/GetJobs')
+        // fetch('http://192.168.11.31:5195/api/JobDetails/GetJobs')
+        fetch('/company.json')
             .then(response => response.json())
             .then(data => {
                 const all = data?.find(d => parseInt(d.id) === parseInt(id.id))
