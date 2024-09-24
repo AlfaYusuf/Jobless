@@ -4,3 +4,12 @@
   /* padding: 2rem; */
   /* text-align: center; */
 }
+
+.pt-10 {
+  padding-top: 1.5rem; /* Custom padding-top */
+}
+
+.px-10 {
+  padding-left: 0.5rem; /* Adjusted padding-left */
+  padding-right: 0.5rem; /* Adjusted padding-right */
+}
