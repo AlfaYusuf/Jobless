@@ -4,7 +4,7 @@ import bannerImage from '../../assets/All Images/JobSearching.png'
 const Header = () => {
     return (
         <div>
-            <div className='md:flex items-center mb-12 px-6 -mt-4'>
+            <div className='md:flex items-center mb-12 px-4 -mt-4'>
 
 
                 <div className="header-details md:w-3/5 tracking-wider ">

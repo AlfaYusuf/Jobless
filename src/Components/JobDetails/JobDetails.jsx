@@ -52,7 +52,10 @@ const JobDetails = () => {
         \nContact: ${details.contact}
         \nEmail: ${details.email}
         \nAddress: ${details.address}
-        \nLink: ${details.link.startsWith('http') ? details.link : `https://${details.link}`}`;
+        \nLink: ${details.link}
+
+        
+         \nLink: ${details.link.startsWith('http') ? details.link : `https://${details.link}`}`;
 
         // WhatsApp URL
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
