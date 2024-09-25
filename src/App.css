@@ -13,3 +13,12 @@
   padding-left: 0.5rem; /* Adjusted padding-left */
   padding-right: 0.5rem; /* Adjusted padding-right */
 }
+.px-16 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.text-5xl {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1;
+}

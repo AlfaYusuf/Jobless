@@ -7,8 +7,8 @@ const JobSection = () => {
 
     useEffect(() => {
         debugger
-        // fetch('http://192.168.11.31:5195/api/JobDetails/GetJobs')
-        fetch('/company.json')
+        fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
+        // fetch('/company.json')
         .then((res) => res.json())
         .then((data) => {
             console.log(data);

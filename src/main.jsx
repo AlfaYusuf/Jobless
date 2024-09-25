@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "details/:id",
         element: <JobDetails />,
-        loader: () => fetch('/company.json'),
+        loader: () => fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs'),
         // loader: ({ params }) => fetch(`company.json/${params.id}`),
       },
       {
