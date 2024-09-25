@@ -12,13 +12,14 @@ const JobDetails = () => {
 
     useEffect(() => {
         debugger
-        // fetch('http://192.168.11.31:5195/api/JobDetails/GetJobs')
-        fetch('/company.json')
+        fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
+        // fetch('/company.json')
             .then(response => response.json())
             .then(data => {
                 const all = data?.find(d => parseInt(d.id) === parseInt(id.id))
                 setDetails(all)
             })
+            // console.log(data)
     }, [])
 
 
@@ -90,7 +91,7 @@ const JobDetails = () => {
 
     return (
         <div >
-            <h1 className='text-5xl text-center bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent p-2 mb-8'>{details.company_name} - Job Details</h1>
+            <h1 className='text-5xl text-center bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent p-1 mb-6'>{details.company_name} - Job Details</h1>
             <div className='md:flex px-16 gap-6'>
                 <div className="left w-11/12 text-lg">
                     <h1 className='tracking-wide'>

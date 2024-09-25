@@ -3,23 +3,23 @@ import React, { useState } from 'react';
 const Form = () => {
     // State to manage form input values
     const [formData, setFormData] = useState({
+        CompanyName:'',
         JobTitle: '',
         JobDescription: '',
         Salary: '',
         Location: '',
         Address: '',
         Link: '',
-        Experience: '',
+        Exprience: '',
         Email: '',
-        ContactNumber: '',
-        Requirement: '',
+        Contact: '',
+        EducationalRequirment: '',
         RemoteOrOnsite: '',
         JobType: ''
     });
 
     // Handle change in input fields
     const handleChange = (e) => {
-         debugger
         const { name, value } = e.target;
         setFormData({
             ...formData,
@@ -36,7 +36,7 @@ const Form = () => {
 
         try {
             // Send POST request to the API with formData
-            const response = await fetch('http://192.168.11.31:5195/api/JobDetails/SaveJobDetailes', {
+            const response = await fetch('http://192.168.11.77:5195/api/JobDetails/SaveJobDetailes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -73,7 +73,6 @@ const Form = () => {
                             value={formData[key]}
                             onChange={handleChange}
                             className="border border-gray-300 rounded p-2"
-                            required
                         />
                     </div>
                 ))}
