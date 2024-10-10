@@ -36,7 +36,15 @@ const Form = () => {
 
         try {
             // Send POST request to the API with formData
-            const response = await fetch('http://192.168.11.77:5195/api/JobDetails/SaveJobDetailes', {
+            // const response = await fetch('http://192.168.11.77:5195/api/JobDetails/SaveJobDetailes', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(formData),
+            // });
+
+            const response = await fetch('https://joblessapi.onrender.com/postjob', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -48,6 +56,23 @@ const Form = () => {
                 // Handle successful response
                 const result = await response.json();
                 console.log('Form data submitted successfully:', result);
+                     // Reset the form to initial empty values
+            setFormData({
+                CompanyName: '',
+                JobTitle: '',
+                JobDescription: '',
+                Salary: '',
+                Location: '',
+                Address: '',
+                Link: '',
+                Exprience: '',
+                Email: '',
+                Contact: '',
+                EducationalRequirment: '',
+                RemoteOrOnsite: '',
+                JobType: ''
+            });
+
             } else {
                 // Handle error response
                 console.error('Failed to submit form data:', response.statusText);

@@ -7,8 +7,9 @@ const JobSection = () => {
 
     useEffect(() => {
         debugger
-        fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
+        // fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
         // fetch('/company.json')
+        fetch('https://joblessapi.onrender.com/getjobs')
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
@@ -29,11 +30,11 @@ const JobSection = () => {
                 {
                     seeAll ?
                         jobs.map((job) => <SingleJobs
-                            key={job.id}
+                            key={job._id}
                             job={job}
                         ></SingleJobs>)
                         : jobs.map((job) => <SingleJobs
-                            key={job.id}
+                            key={job._id}
                             job={job}
                         >
                         </SingleJobs>).slice(0, 4)

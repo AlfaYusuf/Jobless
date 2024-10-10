@@ -56,7 +56,7 @@ const AppliedJobs = () => {
                 
                 {
                     storedJob?.map((singleJob) => <SingleAppliedJobs
-                        singleJob={singleJob} key={singleJob.id}></SingleAppliedJobs>)
+                        singleJob={singleJob} key={singleJob._id}></SingleAppliedJobs>)
                 }
                 
             </div>

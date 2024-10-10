@@ -12,11 +12,12 @@ const JobDetails = () => {
 
     useEffect(() => {
         debugger
-        fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
+        // fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
         // fetch('/company.json')
+        fetch('https://joblessapi.onrender.com/getjobs')
             .then(response => response.json())
             .then(data => {
-                const all = data?.find(d => parseInt(d.id) === parseInt(id.id))
+                const all = data?.find(d => parseInt(d._id) === parseInt(id._id))
                 setDetails(all)
             })
             // console.log(data)
@@ -47,12 +48,12 @@ const JobDetails = () => {
         debugger
         // const phoneNumber = '7972773318'; // WhatsApp number to send the data
         const message = `Job Details:
-        \nJob Title: ${details.jobTitle}
-        \nCompany: ${details.company_name}
-        \nSalary: ${details.salary}
-        \nContact: ${details.contact}
-        \nEmail: ${details.email}
-        \nAddress: ${details.address}
+        \nJob Title: ${details.JobTitle}
+        \nCompany: ${details.CompanyName}
+        \nSalary: ${details.Salary}
+        \nContact: ${details.Contact}
+        \nEmail: ${details.Email}
+        \nAddress: ${details.Address}
         \nLink: ${details.link}
 
         
@@ -70,12 +71,12 @@ const JobDetails = () => {
         debugger
         const message = `
           Check out this job opportunity:
-          \nJob Title: ${details.jobTitle}
-          \nCompany: ${details.company_name}
-          \nSalary: ${details.salary}
-          \nContact: ${details.contact}
-          \nEmail: ${details.email}
-          \nAddress: ${details.address}
+          \nJob Title: ${details.JobTitle}
+          \nCompany: ${details.CompanyName}
+          \nSalary: ${details.Salary}
+          \nContact: ${details.Contact}
+          \nEmail: ${details.Email}
+          \nAddress: ${details.Address}
           \nLink: ${details.link.startsWith('http') ? details.link : `https://${details.link}`}
         `;
         
@@ -91,11 +92,11 @@ const JobDetails = () => {
 
     return (
         <div >
-            <h1 className='text-5xl text-center bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent p-1 mb-6'>{details.company_name} - Job Details</h1>
+            <h1 className='text-5xl text-center bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent p-1 mb-6'>{details.CompanyName} - Job Details</h1>
             <div className='md:flex px-16 gap-6'>
                 <div className="left w-11/12 text-lg">
                     <h1 className='tracking-wide'>
-                        <span className='font-bold'>Job Description: </span>{details.jobDetailes}</h1>
+                        <span className='font-bold'>Job Description: </span>{details.JobDescription}</h1>
                     {/* <h1 className='mt-4 tracking-wide'>
                         <span className='font-bold '>Job Responsibility:</span> {details.job_responsibility}
                     </h1> */}
@@ -112,14 +113,14 @@ const JobDetails = () => {
                         <p className='flex mt-2 items-center'> <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
                             <div>
                                 <span className='font-bold ml-2 '>Salary: </span>
-                                {details.salary}
+                                {details.Salary}
                             </div>
                         </p>
                         <p className='flex mt-2 md:items-center' >
                             <CalendarDaysIcon className="h-6 w-6 text-blue-500" />
                             <div>
                                 <span className='font-bold ml-2'>Job Title: </span>
-                                {details.jobTitle}
+                                {details.JobTitle}
                             </div>
                         </p>
 
@@ -128,20 +129,20 @@ const JobDetails = () => {
                         <p className='flex mt-2 items-center'><PhoneIcon className="h-6 w-6 text-blue-500" />
                             <div>
                                 <span className='font-bold ml-2'>Phone: </span>
-                                {details.contact}
+                                {details.Contact}
                             </div>
                         </p>
                         <p className='flex mt-2 items-center'><EnvelopeIcon className="h-6 w-6 text-blue-500" />
                             <div>
                                 <span className='font-bold ml-2'>Email: </span>
-                                {details.email}
+                                {details.Email}
                             </div>
                         </p>
 
                         <p className='flex mt-2 items-center'> <MapPinIcon className="h-6 w-6 text-blue-500" />
                             <div>
                                 <span className='font-bold ml-2'>Address:  </span>
-                                {details.address}
+                                {details.Address}
                             </div>
                         </p>
                     </div>
