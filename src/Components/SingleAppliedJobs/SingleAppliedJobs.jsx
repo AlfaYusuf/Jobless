@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SingleAppliedJobs = ({ singleJob }) => {
     debugger
     console.log(singleJob);
-    const { company_logo, contactNum, jobTitle, remoteOrOnsite, location, salary } = singleJob;
+    const { company_logo, Contact, JobTitle, RemoteOrOnSite, Location, Salary } = singleJob;
     return (
         <div className='md:flex w-80 md:w-3/5 mx-auto border-2 rounded-3xl justify-between items-center p-4 bg-slate-200 mb-4'>
             <div className='md:flex gap-4 items-center'>
@@ -14,21 +14,21 @@ const SingleAppliedJobs = ({ singleJob }) => {
                         alt="" srcset="" />
                 </div>
                 <div className="details text-start">
-                    <h1 className='text-lg font-bold'>{jobTitle}</h1>
-                    <p className='mb-2'>{contactNum}</p>
-                    <button className='border-2 px-6 py-1 bg-white rounded-lg mb-4'>{remoteOrOnsite}</button>
+                    <h1 className='text-lg font-bold'>{JobTitle}</h1>
+                    <p className='mb-2'>{Contact}</p>
+                    <button className='border-2 px-6 py-1 bg-white rounded-lg mb-4'>{RemoteOrOnSite}</button>
                     <div className='md:flex'>
                         <p className='flex items-center mr-6'>
                             <MapPinIcon className="h-6 w-6 text-blue-500" />
-                            {location}</p>
+                            {Location}</p>
                         <p className='flex items-center mt-2 md:mt-0'>
                             <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
-                            Salary : {salary}</p>
+                            Salary : {Salary}</p>
                     </div>
                 </div>
             </div>
             <div>
-                <Link to={`/details/${singleJob.id}`} className='custom-btn mt-4 w-full '>
+                <Link to={`/details/${singleJob._id}`} className='custom-btn mt-4 w-full '>
                     View Details
                 </Link>
                 {/* <a href='http://www.accenture.com/in-en/careers/jobdetails'>View Details</a> */}

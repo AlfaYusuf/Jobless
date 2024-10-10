@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Form from '../Form/Form';
 import { useNavigate } from 'react-router-dom';
+import Form from '../Form/Form'; // Assuming Form is located in the ../Form/Form
 
 const Login = () => {
     // State to manage form input values
@@ -24,15 +23,30 @@ const Login = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        // Simple validation example
-        if (formData.username === 'Test@gmail.com' && formData.password === 'Test@123') {
-            console.log('Login successful');
-            // Redirect or handle successful login
-            navigate('/form');
+
+        // Simple validation: check if username and password match
+        if (formData.username === 'test@test.com' && formData.password === 'Test@123') {
+            navigate('/form'); // Navigate to Form component
         } else {
             setError('Invalid username or password');
+        }
+
+        try {
+            // Proceed with API request if validation passes
+            const response = await fetch('http://localhost:4000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            console.log(data); // Handle response from server if needed
+        } catch (error) {
+            console.error('Error during registration:', error);
         }
     };
 
@@ -65,11 +79,9 @@ const Login = () => {
                         required
                     />
                 </div>
-                {/* <Link to={'/Form'}  > */}
                 <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded w-full">
                     Login
                 </button>
-                {/* </Link> */}
             </form>
         </div>
     );
