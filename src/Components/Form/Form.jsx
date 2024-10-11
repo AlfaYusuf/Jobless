@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
 
 const Form = () => {
-    // State to manage form input values
     const [formData, setFormData] = useState({
-        CompanyName:'',
+        CompanyName: '',
         JobTitle: '',
         JobDescription: '',
         Salary: '',
         Location: '',
         Address: '',
         Link: '',
-        Exprience: '',
+        Experience: '',  // Corrected
         Email: '',
         Contact: '',
-        EducationalRequirment: '',
+        EducationRequirement: '',  // Corrected
         RemoteOrOnsite: '',
         JobType: ''
     });
 
-    // Handle change in input fields
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -27,23 +25,13 @@ const Form = () => {
         });
     };
 
-    // Handle form submission
     const handleSubmit = async (e) => {
-        debugger
         e.preventDefault();
-
-        console.log('Form data:', formData);
-
+    
+        // Log form data to the console before submission
+        console.log('Form data:', formData);  // This logs all form data
+    
         try {
-            // Send POST request to the API with formData
-            // const response = await fetch('http://192.168.11.77:5195/api/JobDetails/SaveJobDetailes', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(formData),
-            // });
-
             const response = await fetch('https://joblessapi.onrender.com/postjob', {
                 method: 'POST',
                 headers: {
@@ -51,36 +39,36 @@ const Form = () => {
                 },
                 body: JSON.stringify(formData),
             });
-
+    
             if (response.ok) {
-                // Handle successful response
                 const result = await response.json();
                 console.log('Form data submitted successfully:', result);
-                     // Reset the form to initial empty values
-            setFormData({
-                CompanyName: '',
-                JobTitle: '',
-                JobDescription: '',
-                Salary: '',
-                Location: '',
-                Address: '',
-                Link: '',
-                Exprience: '',
-                Email: '',
-                Contact: '',
-                EducationalRequirment: '',
-                RemoteOrOnsite: '',
-                JobType: ''
-            });
-
+    
+                // Reset the form
+                setFormData({
+                    CompanyName: '',
+                    JobTitle: '',
+                    JobDescription: '',
+                    Salary: '',
+                    Location: '',
+                    Address: '',
+                    Link: '',
+                    Experience: '',
+                    Email: '',
+                    Contact: '',
+                    EducationRequirement: '',
+                    RemoteOrOnsite: '',
+                    JobType: ''
+                });
+    
             } else {
-                // Handle error response
                 console.error('Failed to submit form data:', response.statusText);
             }
         } catch (error) {
             console.error('Error during form submission:', error);
         }
     };
+    
 
     return (
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4">
@@ -92,7 +80,7 @@ const Form = () => {
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                         </label>
                         <input
-                            type={key === 'Salary' || key === 'ContactNumber' ? 'number' : 'text'}
+                            type={key === 'Salary' || key === 'Contact' ? 'number' : key === 'Email' ? 'email' : 'text'}
                             id={key}
                             name={key}
                             value={formData[key]}
