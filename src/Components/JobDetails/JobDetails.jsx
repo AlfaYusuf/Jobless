@@ -17,10 +17,11 @@ const JobDetails = () => {
         fetch('https://joblessapi.onrender.com/getjobs')
             .then(response => response.json())
             .then(data => {
+                console.log('Full fetched data:', data); 
                 const all = data?.find(d => parseInt(d._id) === parseInt(id._id))
                 setDetails(all)
             })
-            // console.log(data)
+            //  console.log(all)
     }, [])
 
 

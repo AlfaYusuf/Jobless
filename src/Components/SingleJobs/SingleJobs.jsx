@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SingleJobs = ({ job }) => {
     debugger
      console.log(job);
-    const { company_logo, CompanyName, jobTitle, Location, RemoteOrOnSite, Salary} = job;
+    const { company_logo, CompanyName, jobTitle, Location, RemoteOrOnsite, Salary} = job;
     return (
         <div>
             <div className='mx-auto border-2 rounded-xl items-center p-4  bg-slate-200'>
@@ -23,7 +23,7 @@ const SingleJobs = ({ job }) => {
                                 {/* <p className='mb-2'>TCS</p> */}
                             </div>
                             <div>
-                                <button className='border-2 px-6 py-2 bg-white rounded-lg mb-4'>{RemoteOrOnSite}</button>
+                                <button className='border-2 px-6 py-2 bg-white rounded-lg mb-4'>{RemoteOrOnsite}</button>
                             </div>
                         </div>
                         <div className='md:flex'>

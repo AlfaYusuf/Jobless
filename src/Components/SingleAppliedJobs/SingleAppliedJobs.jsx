@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SingleAppliedJobs = ({ singleJob }) => {
     debugger
     console.log(singleJob);
-    const { company_logo, Contact, JobTitle, RemoteOrOnSite, Location, Salary } = singleJob;
+    const { company_logo, Contact, JobTitle, RemoteOrOnsite, Location, Salary } = singleJob;
     return (
         <div className='md:flex w-80 md:w-3/5 mx-auto border-2 rounded-3xl justify-between items-center p-4 bg-slate-200 mb-4'>
             <div className='md:flex gap-4 items-center'>
@@ -16,7 +16,7 @@ const SingleAppliedJobs = ({ singleJob }) => {
                 <div className="details text-start">
                     <h1 className='text-lg font-bold'>{JobTitle}</h1>
                     <p className='mb-2'>{Contact}</p>
-                    <button className='border-2 px-6 py-1 bg-white rounded-lg mb-4'>{RemoteOrOnSite}</button>
+                    <button className='border-2 px-6 py-1 bg-white rounded-lg mb-4'>{RemoteOrOnsite}</button>
                     <div className='md:flex'>
                         <p className='flex items-center mr-6'>
                             <MapPinIcon className="h-6 w-6 text-blue-500" />
