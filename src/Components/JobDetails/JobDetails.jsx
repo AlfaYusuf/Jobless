@@ -55,10 +55,10 @@ const JobDetails = () => {
         \nContact: ${details.Contact}
         \nEmail: ${details.Email}
         \nAddress: ${details.Address}
-        \nLink: ${details.link}
+        \nLink: ${details.Link}
 
         
-         \nLink: ${details.link.startsWith('http') ? details.link : `https://${details.link}`}`;
+         \nLink: ${details.Link.startsWith('http') ? details.Link : `https://${details.Link}`}`;
 
         // WhatsApp URL
         const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
@@ -78,7 +78,7 @@ const JobDetails = () => {
           \nContact: ${details.Contact}
           \nEmail: ${details.Email}
           \nAddress: ${details.Address}
-          \nLink: ${details.link.startsWith('http') ? details.link : `https://${details.link}`}
+          \nLink: ${details.Link.startsWith('http') ? details.Link : `https://${details.Link}`}
         `;
         
         // Create a URL with encoded job details
@@ -152,7 +152,7 @@ const JobDetails = () => {
                     </button> */}
                     <div>
                         <a
-                            href={details.link}
+                            href={details.Link}
                             className="custom-btn mt-4 w-full"
                             target="_blank"
                             rel="noopener noreferrer"
