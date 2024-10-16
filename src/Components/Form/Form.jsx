@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import { useLocation, useNavigate  } from 'react-router-dom';
 
 const Form = () => {
+    const location = useLocation();
+    const job = location.state?.job; // Get job from location state
+    const navigate = useNavigate(); // Initialize navigate function
+
     const [formData, setFormData] = useState({
         CompanyName: '',
         JobTitle: '',
@@ -9,10 +15,10 @@ const Form = () => {
         Location: '',
         Address: '',
         Link: '',
-        Experience: '',  // Corrected
+        Experience: '',
         Email: '',
         Contact: '',
-        EducationRequirement: '',  // Corrected
+        EducationRequirement: '',
         RemoteOrOnsite: '',
         JobType: ''
     });
@@ -26,25 +32,24 @@ const Form = () => {
     };
 
     const handleSubmit = async (e) => {
+        debugger
         e.preventDefault();
-    
-        // Log form data to the console before submission
-        console.log('Form data:', formData);  // This logs all form data
-    
+        const method = job ? 'PUT' : 'POST'; // Determine method based on editing
+        const apiUrl = `https://joblessapi-1.onrender.com/${job ? `updatejob/${job._id}` : 'postjob'}`;
+
         try {
-            const response = await fetch('https://joblessapi.onrender.com/postjob', {
-                method: 'POST',
+            const response = await fetch(apiUrl, {
+                method: method,
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             });
-    
+
             if (response.ok) {
                 const result = await response.json();
                 console.log('Form data submitted successfully:', result);
-    
-                // Reset the form
+                toast.success('Successfully submitted');
                 setFormData({
                     CompanyName: '',
                     JobTitle: '',
@@ -60,19 +65,37 @@ const Form = () => {
                     RemoteOrOnsite: '',
                     JobType: ''
                 });
-    
+
+                if (method === 'PUT') {
+                    // Redirect to home page after a successful update
+                    setTimeout(() => {
+                        navigate('/'); // Redirect to the home page
+                    }, 2000); // Delay before redirecting
+                }// 1 second delay before redirecting
+              // Close form after submission
             } else {
-                console.error('Failed to submit form data:', response.statusText);
+                const errorText = await response.text();
+                console.error('Failed to submit form data:', response.statusText, errorText);
+                toast.error('Failed to submit form: ' + response.statusText);
             }
         } catch (error) {
             console.error('Error during form submission:', error);
+            toast.error('An error occurred: ' + error.message);
         }
     };
     
+    const onClose= () =>  navigate('/'); // Redirect to the home page
+    
+
+    useEffect(() => {
+        if (job) {
+            setFormData(job); // Pre-fill form with job data
+        }
+    }, [job]);
 
     return (
         <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4">Job Form</h2>
+            <h2 className="text-2xl font-bold mb-4">{job ? 'Edit Job' : 'Job Form'}</h2>
             <div className="grid grid-cols-1 gap-4">
                 {Object.keys(formData).map((key) => (
                     <div key={key} className="flex flex-col">
@@ -91,8 +114,12 @@ const Form = () => {
                 ))}
             </div>
             <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded mt-4">
-                Save
+                {job ? 'Update' : 'Save'}
             </button>
+            <button type="button" onClick={onClose} className="bg-gray-500 text-white py-2 px-4 rounded mt-4 ml-2">
+                Cancel
+            </button>
+            <Toaster />
         </form>
     );
 };

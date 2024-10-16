@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from '../Form/Form'; // Assuming Form is located in the ../Form/Form
+import { useAuth } from '../../AuthContext';
 
 const Login = () => {
     // State to manage form input values
@@ -12,6 +13,7 @@ const Login = () => {
     // State to manage error messages
     const [error, setError] = useState('');
     const navigate = useNavigate(); 
+    const { login } = useAuth(); // Get login function from AuthContext
 
     // Handle change in input fields
     const handleChange = (e) => {
@@ -24,10 +26,12 @@ const Login = () => {
 
     // Handle form submission
     const handleSubmit = async(e) => {
+        debugger
         e.preventDefault();
 
         // Simple validation: check if username and password match
         if (formData.username === 'test@test.com' && formData.password === 'Test@123') {
+            login(); // Call login function to update authentication status
             navigate('/form'); // Navigate to Form component
         } else {
             setError('Invalid username or password');
@@ -35,7 +39,7 @@ const Login = () => {
 
         try {
             // Proceed with API request if validation passes
-            const response = await fetch('https://joblessapi.onrender.com/register', {
+            const response = await fetch('https://joblessapi-1.onrender.com/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

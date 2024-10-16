@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         element: <JobDetails />,
         // loader: () => fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs'),
         // loader: ({ params }) => fetch(`company.json/${params.id}`),
-        loader:()=>fetch('https://joblessapi.onrender.com/getjobs')
+        loader:()=>fetch('https://joblessapi-1.onrender.com/getjobs')
       },
       {
         path:"Login",
@@ -53,7 +53,6 @@ const router = createBrowserRouter([
         path:"Form",
         element:<Form />
       },
-
       // {
       //   path: "blog",
       //   element: <Blog />,

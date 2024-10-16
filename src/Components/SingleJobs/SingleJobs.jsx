@@ -1,11 +1,12 @@
 import React from 'react';
 import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import "./SingleJobs.css"
 
-const SingleJobs = ({ job }) => {
+const SingleJobs = ({ job ,onDelete ,  onEdit ,isAuthenticated  }) => {
     debugger
      console.log(job);
-    const { company_logo, CompanyName, jobTitle, Location, RemoteOrOnsite, Salary} = job;
+    const { company_logo, CompanyName, jobTitle, Location, RemoteOrOnsite, Salary,_id} = job;
     return (
         <div>
             <div className='mx-auto border-2 rounded-xl items-center p-4  bg-slate-200'>
@@ -42,7 +43,20 @@ const SingleJobs = ({ job }) => {
                     <Link to={`/details/${job._id}`}  className='custom-btn mt-4 w-full '>
                         View Details
                     </Link>
-                    {/* <a className='custom-btn mt-4 w-full ' href='http://www.accenture.com/in-en/careers/jobdetails'>View Details</a> */}
+                    {isAuthenticated && (  // Conditional rendering based on authentication
+                    <>
+                    <button
+                        onClick={() => onDelete(_id)}  // Call onDelete with job ID
+                        className='custom-btn mt-4 bg-red-500 text-white'>
+                        Delete Job
+                    </button>
+                    <button
+                        onClick={() => onEdit(job)}  // Call onEdit with job details
+                        className='custom-btn mt-4 bg-blue-500 text-white'>
+                        Edit Job
+                    </button>
+                    </>
+                      )}
                 </div>
             </div>
         </div>
