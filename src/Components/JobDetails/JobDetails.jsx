@@ -14,7 +14,7 @@ const JobDetails = () => {
         debugger
         // fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
         // fetch('/company.json')
-        fetch('https://joblessapi.onrender.com/getjobs')
+        fetch('https://joblessapi-1.onrender.com/getjobs')
             .then(response => response.json())
             .then(data => {
                 console.log('Full fetched data:', data); 
@@ -102,9 +102,9 @@ const JobDetails = () => {
                         <span className='font-bold '>Job Responsibility:</span> {details.job_responsibility}
                     </h1> */}
                     <h1 className='font-bold mt-4 tracking-wide'>Educational Requirements:</h1>
-                    <p className='tracking-wide'>{details.educationalRequirment}</p>
+                    <p className='tracking-wide'>{details.EducationRequirement}</p>
                     <h1 className='my-4 tracking-wide'>
-                        <span className='font-bold '>Experiences:</span> {details.exprience}
+                        <span className='font-bold '>Experiences:</span> {details.Experience}
                     </h1>
                 </div>
                 <div className='md:w-2/4'>
