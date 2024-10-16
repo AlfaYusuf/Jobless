@@ -30,7 +30,7 @@ const Login = () => {
         e.preventDefault();
 
         // Simple validation: check if username and password match
-        if (formData.username === 'test@test.com' && formData.password === 'Test@123') {
+        if (formData.username === 'Jobless@Job.com' && formData.password === 'Jobless@123') {
             login(); // Call login function to update authentication status
             navigate('/form'); // Navigate to Form component
         } else {
