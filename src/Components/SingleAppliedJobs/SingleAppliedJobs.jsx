@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const SingleAppliedJobs = ({ singleJob }) => {
     debugger
     console.log(singleJob);
-    const { company_logo, Contact, JobTitle, RemoteOrOnsite, Location, Salary } = singleJob;
+    const { company_logo, Contact, JobTitle, RemoteOrOnsite, Location, Salary,_id } = singleJob;
     return (
         <div className='md:flex w-80 md:w-3/5 mx-auto border-2 rounded-3xl justify-between items-center p-4 bg-slate-200 mb-4'>
             <div className='md:flex gap-4 items-center'>
@@ -28,7 +28,7 @@ const SingleAppliedJobs = ({ singleJob }) => {
                 </div>
             </div>
             <div>
-                <Link to={`/details/${singleJob._id}`} className='custom-btn mt-4 w-full '>
+                <Link to={`/details/${_id}`} className='custom-btn mt-4 w-full '>
                     View Details
                 </Link>
                 {/* <a href='http://www.accenture.com/in-en/careers/jobdetails'>View Details</a> */}

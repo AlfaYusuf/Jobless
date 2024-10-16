@@ -6,7 +6,7 @@ import useTitle from '../hooks/useTitle';
 
 const JobDetails = () => {
     debugger
-    const id = useParams();
+    const { _id } = useParams(); // Correctly extract _id from useParams
     useTitle("Job Details")
     const [details, setDetails] = useState({});
 
@@ -18,11 +18,11 @@ const JobDetails = () => {
             .then(response => response.json())
             .then(data => {
                 console.log('Full fetched data:', data); 
-                const all = data?.find(d => parseInt(d._id) === parseInt(id._id))
+                const all = data?.find(d => d._id === _id)
                 setDetails(all)
             })
             //  console.log(all)
-    }, [])
+    },  [_id])
 
 
     const handleApplyBtn = (item) => {
