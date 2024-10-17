@@ -32,7 +32,7 @@ const Form = () => {
     };
 
     const handleSubmit = async (e) => {
-        debugger
+        // debugger
         e.preventDefault();
         const method = job ? 'PUT' : 'POST'; // Determine method based on editing
         const apiUrl = `https://joblessapi-1.onrender.com/${job ? `updatejob/${job._id}` : 'postjob'}`;
@@ -48,7 +48,7 @@ const Form = () => {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log('Form data submitted successfully:', result);
+                // console.log('Form data submitted successfully:', result);
                 toast.success('Successfully submitted');
                 setFormData({
                     CompanyName: '',
@@ -94,7 +94,7 @@ const Form = () => {
     }, [job]);
 
     return (
-        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4">
+        <form onSubmit={handleSubmit} className="max-w-4xl mx-auto p-4 header-containerForm">
             <h2 className="text-2xl font-bold mb-4">{job ? 'Edit Job' : 'Job Form'}</h2>
             <div className="grid grid-cols-1 gap-4">
                 {Object.keys(formData).map((key) => (

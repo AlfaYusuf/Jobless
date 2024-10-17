@@ -3,8 +3,8 @@ import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 
 const SingleAppliedJobs = ({ singleJob }) => {
-    debugger
-    console.log(singleJob);
+    // debugger
+    // console.log(singleJob);
     const { company_logo, Contact, JobTitle, RemoteOrOnsite, Location, Salary,_id } = singleJob;
     return (
         <div className='md:flex w-80 md:w-3/5 mx-auto border-2 rounded-3xl justify-between items-center p-4 bg-slate-200 mb-4'>

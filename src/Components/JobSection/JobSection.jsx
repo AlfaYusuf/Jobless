@@ -12,11 +12,11 @@ const JobSection = () => {
     
 
     useEffect(() => {
-        debugger
+        // debugger
         fetch('https://joblessapi-1.onrender.com/getjobs')
             .then((res) => res.json())
             .then((data) => {
-                console.log('Fetched jobs:', data);
+                // console.log('Fetched jobs:', data);
                 setJobs(data);
             })
             .catch((error) => {
@@ -25,7 +25,7 @@ const JobSection = () => {
     }, []);
 
     const deleteJob = (jobId) => {
-        debugger
+        // debugger
         fetch(`https://joblessapi-1.onrender.com/deletejob/${jobId}`, {
             method: 'DELETE',
         })
@@ -33,9 +33,9 @@ const JobSection = () => {
             if (res.ok) {
                 setJobs(jobs.filter(job => job._id !== jobId));  // Remove the job from state
                 toast.success('Successfully submitted');
-                console.log(`Job with id ${jobId} deleted`);
+                // console.log(`Job with id ${jobId} deleted`);
             } else {
-                console.error('Error deleting job');
+                // console.error('Error deleting job');
             }
         })
         .catch((error) => {

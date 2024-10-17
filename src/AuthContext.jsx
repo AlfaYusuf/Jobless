@@ -9,14 +9,14 @@ export const AuthProvider = ({ children }) => {
 
   // Initialize auth status on load
   useEffect(() => {
-    debugger
+    // debugger
     const authStatus = localStorage.getItem('isAuthenticated') === 'true';
     setIsAuthenticated(authStatus);
   }, []);
 
   // Function to handle login
   const login = () => {
-    debugger
+    // debugger
     setIsAuthenticated(true);
     localStorage.setItem('isAuthenticated', 'true');
  
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
 
   // Function to handle logout
   const logout = () => {
-    debugger
+    // debugger
     setIsAuthenticated(false);
     localStorage.removeItem('isAuthenticated');
     
