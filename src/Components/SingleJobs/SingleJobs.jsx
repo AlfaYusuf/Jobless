@@ -2,23 +2,23 @@ import React from 'react';
 import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import "./SingleJobs.css"
+import company_logo from "./../../assets/All Images/WeareHiring.png"
 
 const SingleJobs = ({ job ,onDelete ,  onEdit ,isAuthenticated  }) => {
-    debugger
-     console.log(job);
-    const { company_logo, CompanyName, jobTitle, Location, RemoteOrOnsite, Salary,_id} = job;
+    // debugger
+    //  console.log(job);
+    const {  CompanyName, JobTitle, Location, RemoteOrOnsite, Salary,_id} = job;
     return (
         <div>
-            <div className='mx-auto border-2 rounded-xl items-center p-4  bg-slate-200'>
+            <div className='singlejobsection mx-auto border-2 rounded-xl items-center p-4  bg-slate-200'>
                 <div className='gap-4 items-center'>
                     <div className="image p-2">
-                        <img src={company_logo} className='w-36'
-                            alt="" srcset="" />
+                    <img src={company_logo} className="w-36" alt="Company Logo" />
                     </div>
                     <div className="details text-start p-2">
                         <div className='flex justify-between'>
                             <div>
-                                <h1 className='text-lg font-bold'>{jobTitle}</h1>
+                                <h1 className='text-lg font-bold'>{JobTitle}</h1>
                                 {/* <h1 className='text-lg font-bold'>Drug safety Associate</h1> */}
                                 <p className='mb-2'>{CompanyName}</p>
                                 {/* <p className='mb-2'>TCS</p> */}

@@ -26,7 +26,7 @@ const Login = () => {
 
     // Handle form submission
     const handleSubmit = async(e) => {
-        debugger
+        // debugger
         e.preventDefault();
 
         // Simple validation: check if username and password match
@@ -48,7 +48,7 @@ const Login = () => {
             });
 
             const data = await response.json();
-            console.log(data); // Handle response from server if needed
+            // console.log(data); // Handle response from server if needed
         } catch (error) {
             console.error('Error during registration:', error);
         }

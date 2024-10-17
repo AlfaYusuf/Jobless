@@ -5,13 +5,13 @@ import toast, { Toaster } from 'react-hot-toast';
 import useTitle from '../hooks/useTitle';
 
 const JobDetails = () => {
-    debugger
+    // debugger
     const { _id } = useParams(); // Correctly extract _id from useParams
     useTitle("Job Details")
     const [details, setDetails] = useState({});
 
     useEffect(() => {
-        debugger
+        // debugger
         // fetch('http://192.168.11.77:5195/api/JobDetails/GetJobs')
         // fetch('/company.json')
         fetch('https://joblessapi-1.onrender.com/getjobs')
@@ -46,9 +46,9 @@ const JobDetails = () => {
     }
 
     const handleSendToWhatsApp = () => {
-        debugger
+        // debugger
         // const phoneNumber = '7972773318'; // WhatsApp number to send the data
-        const message = `Job Details:
+        const message = `Check out this job opportunity:
         \nJob Title: ${details.JobTitle}
         \nCompany: ${details.CompanyName}
         \nSalary: ${details.Salary}
@@ -69,7 +69,7 @@ const JobDetails = () => {
 
 
     const handleShareOnLinkedIn = () => {
-        debugger
+        // debugger
         const message = `
           Check out this job opportunity:
           \nJob Title: ${details.JobTitle}

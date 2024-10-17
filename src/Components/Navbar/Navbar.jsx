@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    debugger
+    // debugger
     logout(); // Update global authentication state
     // Clear authentication data and update state
     // localStorage.removeItem('isAuthenticated');
