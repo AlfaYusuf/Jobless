@@ -93,10 +93,11 @@ const JobDetails = () => {
 
     return (
         <div >
-            <h1 className='text-5xl text-center bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent p-1 mb-6'>{details.CompanyName} - Job Details</h1>
+            <h1 className='text-5xl text-center bg-gradient-to-r from-indigo-500 to-indigo-800 bg-clip-text text-transparent p-1 mb-6'> Company Name - {details.CompanyName} </h1>
             <div className='md:flex px-16 gap-6'>
                 <div className="left w-11/12 text-lg">
-                    <h1 className='tracking-wide'>
+                <h1> <span className='font-bold '>Job Title: </span>{details.JobTitle} </h1>
+                    <h1 className='tracking-wide  mt-4'>
                         <span className='font-bold'>Job Description: </span>{details.JobDescription}</h1>
                     {/* <h1 className='mt-4 tracking-wide'>
                         <span className='font-bold '>Job Responsibility:</span> {details.job_responsibility}
@@ -140,12 +141,12 @@ const JobDetails = () => {
                             </div>
                         </p>
 
-                        <p className='flex mt-2 items-center'> <MapPinIcon className="h-6 w-6 text-blue-500" />
+                        {/* <p className='flex mt-2 items-center'> <MapPinIcon className="h-6 w-6 text-blue-500" />
                             <div>
                                 <span className='font-bold ml-2'>Address:  </span>
                                 {details.Address}
                             </div>
-                        </p>
+                        </p> */}
                     </div>
                     {/* <button onClick={() => handleApplyBtn(details)}
                         className='custom-btn w-full mt-4'>Apply Now

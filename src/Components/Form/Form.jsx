@@ -34,6 +34,13 @@ const Form = () => {
     const handleSubmit = async (e) => {
         // debugger
         e.preventDefault();
+
+        const submissionData = {
+            ...formData,
+            Salary: formData.Salary ? parseFloat(formData.Salary) : '',  // Convert Salary to number if present
+            Contact: formData.Contact ? parseInt(formData.Contact) : ''  // Convert Contact to number if present
+        };
+
         const method = job ? 'PUT' : 'POST'; // Determine method based on editing
         const apiUrl = `https://joblessapi-1.onrender.com/${job ? `updatejob/${job._id}` : 'postjob'}`;
 
@@ -43,7 +50,7 @@ const Form = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(submissionData),  // Use submissionData for form submission
             });
 
             if (response.ok) {
@@ -103,7 +110,10 @@ const Form = () => {
                             {key.replace(/([A-Z])/g, ' $1').trim()}
                         </label>
                         <input
-                            type={key === 'Salary' || key === 'Contact' ? 'number' : key === 'Email' ? 'email' : 'text'}
+                            type={
+                                key === 'Salary' || key === 'Contact' ? 'text' // Allow text input for Salary and Contact
+                                : 'text'  // Use text for Email to allow no validation for '@'
+                            }
                             id={key}
                             name={key}
                             value={formData[key]}
