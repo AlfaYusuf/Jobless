@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPinIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid'
+import { MapPinIcon, CurrencyDollarIcon ,BriefcaseIcon} from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import "./SingleJobs.css"
 import company_logo from "./../../assets/All Images/WeareHiring.png"
@@ -7,7 +7,7 @@ import company_logo from "./../../assets/All Images/WeareHiring.png"
 const SingleJobs = ({ job ,onDelete ,  onEdit ,isAuthenticated  }) => {
     // debugger
     //  console.log(job);
-    const {  CompanyName, JobTitle, Location, RemoteOrOnsite, Salary,_id} = job;
+    const {  CompanyName, JobTitle, Location, RemoteOrOnsite, Experience,_id} = job;
     return (
         <div>
             <div className='singlejobsection mx-auto border-2 rounded-xl items-center p-4  bg-slate-200'>
@@ -33,8 +33,8 @@ const SingleJobs = ({ job ,onDelete ,  onEdit ,isAuthenticated  }) => {
                                 {Location}
                             </p>
                             <p className='flex items-center mt-2 md:mt-0'>
-                                <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
-                                Salary : {Salary}
+                            <BriefcaseIcon className="h-6 w-6 text-blue-500" />
+                               &nbsp; <span>Experiences:</span> {Experience}
                             </p>
                         </div>
                     </div>
