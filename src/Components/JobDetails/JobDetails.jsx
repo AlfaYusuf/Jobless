@@ -112,12 +112,6 @@ const JobDetails = () => {
                     <div className="right  rounded-xl border-4 p-4 leading-loose">
                         <h1 className='font-bold text-xl mb-2'>Job Details</h1>
                         <hr />
-                        <p className='flex mt-2 items-center'> <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
-                            <div>
-                                <span className='font-bold ml-2 '>Salary: </span>
-                                {details.Salary}
-                            </div>
-                        </p>
                         <p className='flex mt-2 md:items-center' >
                             <CalendarDaysIcon className="h-6 w-6 text-blue-500" />
                             <div>
@@ -125,6 +119,13 @@ const JobDetails = () => {
                                 {details.JobTitle}
                             </div>
                         </p>
+                        <p className='flex mt-2 items-center'> <CurrencyDollarIcon className="h-6 w-6 text-blue-500" />
+                            <div>
+                                <span className='font-bold ml-2 '>Salary: </span>
+                                {details.Salary}
+                            </div>
+                        </p>
+                       
 
                         <h1 className='font-bold text-xl mt-4 mb-2'>Contact Information</h1>
                         <hr />

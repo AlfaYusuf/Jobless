@@ -37,8 +37,9 @@ const Form = () => {
 
         const submissionData = {
             ...formData,
-            Salary: formData.Salary ? parseFloat(formData.Salary) : '',  // Convert Salary to number if present
-            Contact: formData.Contact ? parseInt(formData.Contact) : ''  // Convert Contact to number if present
+            Salary: formData.Salary || 'Not disclosed', // Set to "Not disclosed" if empty
+            Contact: formData.Contact || 'Not disclosed', // Set to "Not disclosed" if empty
+            Email: formData.Email || 'Not disclosed', // Set to "Not disclosed" if empty/ Convert Contact to number if present
         };
 
         const method = job ? 'PUT' : 'POST'; // Determine method based on editing
